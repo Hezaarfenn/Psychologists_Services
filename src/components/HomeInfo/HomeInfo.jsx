@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const HomeInfo = () => {
   return (
-    <section className="flex flex-col gap-10 w-full max-w-[595px] mt-10 md:mt-[222px] mb-10 md:mb-[140px] px-4">
+    <section className="flex flex-col gap-10 w-full max-w-[595px] mt-[100px] md:mt-[222px] mb-[60px] md:mb-[140px] px-4">
       <div className="flex flex-col gap-5">
         <h1 className="w-[595px] text-[#191A15] text-[40px] md:text-[80px] font-semibold leading-tight md:leading-[82px]">
           The road to the <span className="text-[#54BE96] italic">depths</span>{" "}

@@ -1,13 +1,33 @@
+import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 import logo from "/PsychologistsLogo.svg";
 
 const Header = () => {
   return (
-    <div>
+    <section className="max-w-[1440px] min-w-[768] mx-auto flex items-center justify-between pt-6 px-8">
       <Link to="/">
-        <img width="218px" height="28px" src={logo} alt="logo" />
+        <img width="218" height="28" src={logo} alt="logo" />
       </Link>
-    </div>
+
+      <ul className="flex gap-10 text-lg text-[#191A15]">
+        <li>
+          <NavLink to="/">Home</NavLink>
+        </li>
+        <li>
+          <NavLink to="/psychologists">Psychologists</NavLink>
+        </li>
+      </ul>
+
+      <ul className="flex gap-2">
+        <li className="w-[124px] h-12 border border-[#191A15]/20 hover:bg-gray-300 hover:border-transparent rounded-[30px] flex items-center justify-center">
+          <button>Log In</button>
+        </li>
+
+        <li className="w-[171px] h-12 border bg-[#54BE96] text-[#FBFBFB] border-transparent rounded-[30px] flex items-center justify-center hover:bg-[#36A379]">
+          <button>Registration</button>
+        </li>
+      </ul>
+    </section>
   );
 };
 

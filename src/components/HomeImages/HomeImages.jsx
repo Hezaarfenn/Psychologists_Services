@@ -1,6 +1,6 @@
 const HomeImages = () => {
   return (
-    <section className="mt:10 md:mt-[174px] px-4 w-full flex justify-center">
+    <section className="mt-10 md:mt-[174px] px-4 w-full flex justify-center">
       <div className="relative w-full md:w-[464px] h-auto">
         <img
           width="464"
