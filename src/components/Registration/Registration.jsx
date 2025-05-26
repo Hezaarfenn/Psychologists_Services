@@ -1,6 +1,6 @@
 const Registiration = ({ onClose }) => {
   return (
-    <section className="relative">
+    <section className="relative p-15 md:p-0">
       <div className="flex flex-col gap-5">
         <h1 className="text-[40px] text-[#191A15] font-medium">
           Registiration
@@ -33,7 +33,7 @@ const Registiration = ({ onClose }) => {
       </div>
 
       {/* X ikonu */}
-      <div className="absolute top-[-40px] left-[444px]">
+      <div className="absolute top-[-10px] left-[610px] md:top-[-40px] md:left-[444px]">
         <svg
           width="32"
           height="32"

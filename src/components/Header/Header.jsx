@@ -12,21 +12,23 @@ const Header = () => {
 
   return (
     <>
-      <section className="max-w-[1440px] min-w-[768] mx-auto flex items-center justify-between pt-6 px-8">
-        <Link to="/">
-          <img width="218" height="28" src={logo} alt="logo" />
-        </Link>
+      <section className="max-w-[1440px] min-w-[768] mx-auto flex flex-col md:flex-row items-center justify-between pt-6 px-8">
+        <div className="flex items-center gap-[130px]">
+          <Link to="/">
+            <img width="218" height="28" src={logo} alt="logo" />
+          </Link>
 
-        <ul className="flex gap-10 text-lg text-[#191A15]">
-          <li>
-            <NavLink to="/">Home</NavLink>
-          </li>
-          <li>
-            <NavLink to="/psychologists">Psychologists</NavLink>
-          </li>
-        </ul>
+          <ul className="flex gap-10 text-lg text-[#191A15]">
+            <li>
+              <NavLink to="/">Home</NavLink>
+            </li>
+            <li>
+              <NavLink to="/psychologists">Psychologists</NavLink>
+            </li>
+          </ul>
+        </div>
 
-        <ul className="flex gap-2">
+        <ul className="flex gap-2 mt-5 md:mt-0">
           <li className="w-[124px] h-12 border border-[#191A15]/20 hover:bg-gray-300 hover:border-transparent rounded-[30px] cursor-pointer flex items-center justify-center">
             <button
               onClick={() => setIsLoginOpen(true)}
