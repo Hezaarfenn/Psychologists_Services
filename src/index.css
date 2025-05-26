@@ -4,3 +4,7 @@
 :root {
   font-family: Inter;
 }
+
+.ReactModal__Body--open {
+  overflow: hidden;
+}
