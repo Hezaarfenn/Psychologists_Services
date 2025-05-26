@@ -1,7 +1,11 @@
-import React from "react";
+import PsychologistsCard from "../../components/PsychologistsCard/PsychologistsCard";
 
 const PsychologistsPage = () => {
-  return <div>PsychologistsPage</div>;
+  return (
+    <div>
+      <PsychologistsCard />
+    </div>
+  );
 };
 
 export default PsychologistsPage;
