@@ -30,7 +30,6 @@ const Registiration = ({ onClose }) => {
   const handleRegisterSubmit = async (values, { setSubmitting }) => {
     const resultAction = await dispatch(registerUser(values));
     if (registerUser.fulfilled.match(resultAction)) {
-      toast.success("Registered successfully!");
       onClose();
     } else {
       toast.error(resultAction.payload?.message || "Registration failed");
