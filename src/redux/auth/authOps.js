@@ -14,7 +14,7 @@ export const registerUser = createAsyncThunk(
       const userCredentials = await createUserWithEmailAndPassword(
         auth,
         email,
-        password
+        password,
       );
       const user = userCredentials.user;
 
@@ -30,7 +30,7 @@ export const registerUser = createAsyncThunk(
     } catch (error) {
       return rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const loginUser = createAsyncThunk(
@@ -40,7 +40,7 @@ export const loginUser = createAsyncThunk(
       const userCredentials = await signInWithEmailAndPassword(
         auth,
         email,
-        password
+        password,
       );
       const user = userCredentials.user;
       if (user) {
@@ -54,5 +54,5 @@ export const loginUser = createAsyncThunk(
     } catch (error) {
       return rejectWithValue(error.message);
     }
-  }
+  },
 );

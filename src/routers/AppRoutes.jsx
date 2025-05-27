@@ -4,11 +4,11 @@ import Layout from "../components/Layout/Layout";
 import Loader from "../components/Loader/Loader";
 
 const HomePage = lazy(() => import("../pages/HomePage/HomePage"));
-const PsychologistsPage = lazy(() =>
-  import("../pages/PsychologistsPage/PsychologistsPage")
+const PsychologistsPage = lazy(
+  () => import("../pages/PsychologistsPage/PsychologistsPage"),
 );
-const FavoritesPage = lazy(() =>
-  import("../pages/FavoritesPage/FavoritesPage")
+const FavoritesPage = lazy(
+  () => import("../pages/FavoritesPage/FavoritesPage"),
 );
 const NotFoundPage = lazy(() => import("../pages/NotFoundPage/NotFoundPage"));
 
