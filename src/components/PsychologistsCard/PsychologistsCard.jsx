@@ -1,7 +1,11 @@
 import { useState } from "react";
+import Appointment from "../Appointment/Appointment";
+import BaseModal from "../BaseModal/BaseModal";
 
 const PsychologistsCard = () => {
   const [expanded, setExpanded] = useState(false);
+
+  const [isAppointmentOpen, setIsAppointmentOpen] = useState(false);
 
   return (
     <>
@@ -146,9 +150,18 @@ const PsychologistsCard = () => {
                     understanding and empathetic.
                   </p>
                 </div>
-                <button className="w-[227px] h-12 mt-10 border bg-[#54BE96] border-transparent hover:bg-[#36A379] rounded-[30px] text-[#FBFBFB]">
+                <button
+                  onClick={() => setIsAppointmentOpen(true)}
+                  className="w-[227px] h-12 mt-10 border bg-[#54BE96] border-transparent hover:bg-[#36A379] rounded-[30px] cursor-pointer text-[#FBFBFB]"
+                >
                   Make an appointment
                 </button>
+                <BaseModal
+                  isOpen={isAppointmentOpen}
+                  onRequestClose={() => setIsAppointmentOpen(false)}
+                >
+                  <Appointment onClose={() => setIsAppointmentOpen(false)} />
+                </BaseModal>
               </div>
             )}
           </div>
@@ -458,7 +471,7 @@ const PsychologistsCard = () => {
       </section>
 
       <div className="flex justify-center">
-        <button className="w-[176px] h-12 mt-16 mb-[100px] border bg-[#54BE96] border-transparent hover:bg-[#36A379] rounded-[30px] text-[#FBFBFB]">
+        <button className="w-[176px] h-12 mt-16 mb-[100px] border bg-[#54BE96] border-transparent hover:bg-[#36A379] rounded-[30px] cursor-pointer text-[#FBFBFB]">
           Load More
         </button>
       </div>

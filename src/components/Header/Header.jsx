@@ -2,7 +2,7 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 import logo from "/PsychologistsLogo.svg";
-import AuthModal from "../AuthModal/AuthModal";
+import BaseModal from "../BaseModal/BaseModal";
 import Login from "../Login/Login";
 import Registiration from "../Registration/Registration";
 
@@ -49,19 +49,19 @@ const Header = () => {
         </ul>
       </section>
 
-      <AuthModal
+      <BaseModal
         isOpen={isLoginOpen}
         onRequestClose={() => setIsLoginOpen(false)}
       >
         <Login onClose={() => setIsLoginOpen(false)} />
-      </AuthModal>
+      </BaseModal>
 
-      <AuthModal
+      <BaseModal
         isOpen={isRegistirationOpen}
         onRequestClose={() => setIsRegistirationOpen(false)}
       >
         <Registiration onClose={() => setIsRegistirationOpen(false)} />
-      </AuthModal>
+      </BaseModal>
     </>
   );
 };

@@ -2,7 +2,7 @@ import Modal from "react-modal";
 
 Modal.setAppElement("#root");
 
-const AuthModal = ({ isOpen, onRequestClose, children }) => {
+const BaseModal = ({ isOpen, onRequestClose, children }) => {
   return (
     <Modal
       isOpen={isOpen}
@@ -15,4 +15,4 @@ const AuthModal = ({ isOpen, onRequestClose, children }) => {
   );
 };
 
-export default AuthModal;
+export default BaseModal;
