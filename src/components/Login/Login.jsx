@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { loginUser } from "../../redux/auth/authOps";
 import { toast } from "react-toastify";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
+import { loginSchema } from "../../validation/validationSchema";
 import "./../../routers/AppRoutes";
 
 const Login = ({ onClose }) => {
@@ -28,13 +28,6 @@ const Login = ({ onClose }) => {
     email: "",
     password: "",
   };
-
-  const loginSchema = Yup.object({
-    email: Yup.string().email("Invalid email").required("Email is required"),
-    password: Yup.string()
-      .required("Password must be at least 6 characters")
-      .min(6, "At least 6 characters"),
-  });
 
   const handleLoginSubmit = async (values, { setSubmitting }) => {
     const resultAction = await dispatch(loginUser(values));
@@ -99,7 +92,7 @@ const Login = ({ onClose }) => {
       </Formik>
 
       {/* X ikonu */}
-      <div className="absolute top-[-10px] left-[610px] md:top-[-40px] md:left-[444px]">
+      <div className="absolute top-[-10px] right-4 md:top-[-40px] md:left-[444px]">
         <svg
           width="32"
           height="32"

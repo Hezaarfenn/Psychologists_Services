@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { registerUser } from "../../redux/auth/authOps";
 import { toast } from "react-toastify";
-import * as Yup from "yup";
+import { registerSchema } from "../../validation/validationSchema";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
 const Registiration = ({ onClose }) => {
@@ -16,16 +16,6 @@ const Registiration = ({ onClose }) => {
     email: "",
     password: "",
   };
-
-  const loginSchema = Yup.object({
-    name: Yup.string()
-      .required("Name is required")
-      .min(2, "At least 2 characters"),
-    email: Yup.string().email("Invalid email").required("Email is required"),
-    password: Yup.string()
-      .required("Password must be at least 6 characters")
-      .min(6, "At least 6 characters"),
-  });
 
   const handleRegisterSubmit = async (values, { setSubmitting }) => {
     const resultAction = await dispatch(registerUser(values));
@@ -52,7 +42,7 @@ const Registiration = ({ onClose }) => {
 
       <Formik
         initialValues={initialValues}
-        validationSchema={loginSchema}
+        validationSchema={registerSchema}
         onSubmit={handleRegisterSubmit}
       >
         {({ isSubmitting }) => (
@@ -113,7 +103,7 @@ const Registiration = ({ onClose }) => {
       </Formik>
 
       {/* X ikonu */}
-      <div className="absolute top-[-10px] left-[610px] md:top-[-40px] md:left-[444px]">
+      <div className="absolute top-[-10px] right-4 md:top-[-40px] md:left-[444px]">
         <svg
           width="32"
           height="32"
