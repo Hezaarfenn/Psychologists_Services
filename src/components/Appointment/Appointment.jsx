@@ -4,6 +4,7 @@ import { useState } from "react";
 import { times } from "../../utils/TimePicker";
 import { ErrorField } from "../../utils/ErrorField";
 import { useField } from "formik";
+import { toast } from "react-toastify";
 
 const TimePicker = ({ name }) => {
   const [field, meta, helpers] = useField(name);
@@ -71,6 +72,17 @@ const Appointment = ({ onClose }) => {
     comment: "",
   };
 
+  const handleSubmit = (values, { resetForm }) => {
+    try {
+      console.log(values);
+      toast.success("Your appointment has been successfully scheduled!");
+      resetForm();
+      onClose();
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
+
   return (
     <section className="relative">
       <div className="flex flex-col gap-5">
@@ -107,9 +119,7 @@ const Appointment = ({ onClose }) => {
         <Formik
           initialValues={initialValues}
           validationSchema={appointmentSchema}
-          onSubmit={(values) => {
-            console.log(values);
-          }}
+          onSubmit={handleSubmit}
         >
           <Form className="flex flex-col gap-4 mt-10">
             <ErrorField name="name" type="text" placeholder="Name" />

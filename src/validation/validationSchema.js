@@ -27,7 +27,9 @@ export const appointmentSchema = Yup.object({
       "Phone must be in international format (e.g. +380123456789)",
     )
     .required("Phone is required"),
-  meetingTime: Yup.string().required("Required"),
+  meetingTime: Yup.string()
+    .notOneOf(["00:00"], "Meeting time is required")
+    .required("Required"),
   email: Yup.string().email("Invalid email").required("Email is required"),
   comment: Yup.string()
     .required("Comment is required")

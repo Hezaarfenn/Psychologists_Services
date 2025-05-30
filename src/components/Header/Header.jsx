@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { logoutUser, selectIsAuthenticated } from "../../redux/auth/authSlice";
 import logo from "/PsychologistsLogo.svg";
 import BaseModal from "../BaseModal/BaseModal";
 import Login from "../Login/Login";
@@ -9,6 +11,14 @@ import Registiration from "../Registration/Registration";
 const Header = () => {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isRegistirationOpen, setIsRegistirationOpen] = useState(false);
+
+  const user = useSelector((state) => state.auth.user);
+  const isAuthenticated = useSelector(selectIsAuthenticated);
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(logoutUser());
+  };
 
   return (
     <>
@@ -25,43 +35,72 @@ const Header = () => {
             <li>
               <NavLink to="/psychologists">Psychologists</NavLink>
             </li>
+            {isAuthenticated && (
+              <li>
+                <NavLink to="favorites">Favorites</NavLink>
+              </li>
+            )}
           </ul>
         </div>
 
         <ul className="flex gap-2 mt-5 md:mt-0">
-          <li className="w-[124px] h-12 border border-[#191A15]/20 hover:bg-gray-300 hover:border-transparent rounded-[30px] cursor-pointer flex items-center justify-center">
-            <button
-              onClick={() => setIsLoginOpen(true)}
-              className="cursor-pointer"
-            >
-              Log In
-            </button>
-          </li>
+          {isAuthenticated ? (
+            <>
+              <li className="flex items-center text-[#191A15] mr-4 gap-3.5">
+                <div className="flex justify-center items-center w-10 h-10 border border-transparent bg-[#54BE96] rounded-[10px] ">
+                  <svg width="16" height="16">
+                    <use href="/sprite.svg#user" />
+                  </svg>
+                </div>
+                <span> {user?.name || user?.email}</span>
+              </li>
+              <li className="w-[124px] h-12 border border-[#191A15]/20 hover:bg-gray-300 hover:border-transparent rounded-[30px] cursor-pointer flex items-center justify-center">
+                <button onClick={handleLogout} className="cursor-pointer">
+                  Log Out
+                </button>
+              </li>
+            </>
+          ) : (
+            <>
+              <li className="w-[124px] h-12 border border-[#191A15]/20 hover:bg-gray-300 hover:border-transparent rounded-[30px] cursor-pointer flex items-center justify-center">
+                <button
+                  onClick={() => setIsLoginOpen(true)}
+                  className="cursor-pointer"
+                >
+                  Log In
+                </button>
+              </li>
 
-          <li className="w-[171px] h-12 border bg-[#54BE96] text-[#FBFBFB] border-transparent rounded-[30px] cursor-pointer flex items-center justify-center hover:bg-[#36A379]">
-            <button
-              onClick={() => setIsRegistirationOpen(true)}
-              className="cursor-pointer"
-            >
-              Registration
-            </button>
-          </li>
+              <li className="w-[171px] h-12 border bg-[#54BE96] text-[#FBFBFB] border-transparent rounded-[30px] cursor-pointer flex items-center justify-center hover:bg-[#36A379]">
+                <button
+                  onClick={() => setIsRegistirationOpen(true)}
+                  className="cursor-pointer"
+                >
+                  Registration
+                </button>
+              </li>
+            </>
+          )}
         </ul>
       </section>
 
-      <BaseModal
-        isOpen={isLoginOpen}
-        onRequestClose={() => setIsLoginOpen(false)}
-      >
-        <Login onClose={() => setIsLoginOpen(false)} />
-      </BaseModal>
+      {!isAuthenticated && (
+        <>
+          <BaseModal
+            isOpen={isLoginOpen}
+            onRequestClose={() => setIsLoginOpen(false)}
+          >
+            <Login onClose={() => setIsLoginOpen(false)} />
+          </BaseModal>
 
-      <BaseModal
-        isOpen={isRegistirationOpen}
-        onRequestClose={() => setIsRegistirationOpen(false)}
-      >
-        <Registiration onClose={() => setIsRegistirationOpen(false)} />
-      </BaseModal>
+          <BaseModal
+            isOpen={isRegistirationOpen}
+            onRequestClose={() => setIsRegistirationOpen(false)}
+          >
+            <Registiration onClose={() => setIsRegistirationOpen(false)} />
+          </BaseModal>
+        </>
+      )}
     </>
   );
 };
