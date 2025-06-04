@@ -94,7 +94,7 @@ const Registiration = ({ onClose }) => {
             <button
               type="submit"
               disabled={isSubmitting || isLoading}
-              className="w-[438px] h-[52px] mt-10 border bg-[#54BE96] border-transparent hover:bg-[#36A379] rounded-[30px] text-[#FBFBFB]"
+              className="w-[438px] h-[52px] mt-10 border bg-[rgb(var(--primary-color))] border-transparent hover:bg-[rgb(var(--primary-color-hover))] rounded-[30px] text-[rgb(var(--primary-text-on))]"
             >
               {isLoading ? "Loading..." : "Sign Up"}
             </button>

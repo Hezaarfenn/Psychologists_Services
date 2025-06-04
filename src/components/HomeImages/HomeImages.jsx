@@ -12,7 +12,11 @@ const HomeImages = () => {
 
         {/* Purple question mark box */}
         <div className="w-8 h-8 md:w-10 md:h-10 bg-[#4535AF] rounded-[10px] absolute top-[200px] md:top-[38%] left-[-3%] md:left-[-7%] -rotate-[15deg] flex items-center justify-center">
-          <svg width="9" height="14.88" className="text-[#FBFBFB] fill-current">
+          <svg
+            width="9"
+            height="14.88"
+            className="text-[rgb(var(--primary-text-on))] fill-current"
+          >
             <use href="/sprite.svg#question-mark" />
           </svg>
         </div>
@@ -22,29 +26,31 @@ const HomeImages = () => {
           <svg
             width="20"
             height="20"
-            className="text-[#FBFBFB] fill-current rotate-[-15deg]"
+            className="text-[rgb(var(--primary-text-on))] fill-current rotate-[-15deg]"
           >
             <use href="/sprite.svg#user-double" />
           </svg>
         </div>
 
         {/* Tick info box */}
-        <div className="flex justify-center items-center border bg-[#54BE96] w-[280px] md:w-[311px] h-[110px] md:h-[118px] rounded-[20px] border-transparent absolute top-[330px] left-[-100px]">
+        <div className="flex justify-center items-center border bg-[rgb(var(--primary-color))] w-[280px] md:w-[311px] h-[110px] md:h-[118px] rounded-[20px] border-transparent absolute top-[330px] left-[-100px]">
           <div className="flex gap-4 items-center">
-            <div className="w-[54px] h-[54px] bg-[#FBFBFB] rounded-[10px] flex items-center justify-center">
+            <div className="w-[54px] h-[54px] bg-[rgb(var(--primary-text-on))] rounded-[10px] flex items-center justify-center">
               <svg
                 width="20"
                 height="15"
-                className="text-[#54BE96] fill-current"
+                className="text-[rgb(var(--primary-color))] fill-current"
               >
                 <use href="/sprite.svg#tick" />
               </svg>
             </div>
             <div className="flex flex-col gap-2">
-              <p className="text-[#FBFBFB]/50 text-sm">
+              <p className="text-[rgb(var(--primary-text-on)/50)] text-sm">
                 Experienced psychologists
               </p>
-              <span className="text-[#FBFBFB] text-2xl font-bold">15,000</span>
+              <span className="text-[rgb(var(--primary-text-on))] text-2xl font-bold">
+                15,000
+              </span>
             </div>
           </div>
         </div>

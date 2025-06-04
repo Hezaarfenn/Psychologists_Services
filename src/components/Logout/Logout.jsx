@@ -18,7 +18,7 @@ const Logout = ({ isOpen, onRequestClose, onConfirm }) => {
 
         <div>
           <button
-            className="bg-[#54BE96] hover:bg-[#36A379] cursor-pointer text-white px-4 py-2 rounded-md mr-2"
+            className="bg-[rgb(var(--primary-color))] hover:bg-[rgb(var(--primary-color-hover))] cursor-pointer text-white px-4 py-2 rounded-md mr-2"
             onClick={onConfirm}
           >
             Yes

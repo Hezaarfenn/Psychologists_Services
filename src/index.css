@@ -3,6 +3,27 @@
 
 :root {
   font-family: Inter;
+  --primary-color: 84 190 150; /* #54BE96 */
+  --primary-color-hover: 54 163 121; /* #36A379 */
+  --primary-text-on: 251 251 251; /* #FBFBFB */
+}
+
+.theme-green {
+  --primary-color: 84 190 150;
+  --primary-color-hover: 54 163 121;
+  --primary-text-on: 251 251 251;
+}
+
+.theme-orange {
+  --primary-color: 252 131 44; /* #FC832C */
+  --primary-color-hover: 243 113 19; /* #F37113 */
+  --primary-text-on: 251 251 251;
+}
+
+.theme-blue {
+  --primary-color: 52 112 255; /* #3470FF */
+  --primary-color-hover: 37 94 232; /* #255EE8 */
+  --primary-text-on: 251 251 251;
 }
 
 .ReactModal__Body--open {

@@ -50,7 +50,7 @@ const TimePicker = ({ name }) => {
             {times.map((time) => (
               <li
                 key={time}
-                className="text-[#191A15] hover:bg-[#54BE96]/15 px-10 py-1 rounded cursor-pointer text-sm"
+                className="text-[#191A15] hover:bg-[rgb(var(--primary-color)/0.15)] px-10 py-1 rounded cursor-pointer text-sm"
                 onClick={() => handleSelect(time)}
               >
                 {time}
@@ -144,7 +144,7 @@ const Appointment = ({ onClose, name, avatar_url }) => {
             {/* Send Button */}
             <button
               type="submit"
-              className="bg-[#54BE96] hover:bg-[#36A379] cursor-pointer rounded-[30px] text-[#FBFBFB] text-base md:text-xl font-medium py-4 w-full md:w-[400px] mx-auto mt-2"
+              className="bg-[rgb(var(--primary-color))] hover:bg-[rgb(var(--primary-color-hover))] cursor-pointer rounded-[30px] text-[rgb(var(--primary-text-on))] text-base md:text-xl font-medium py-4 w-full md:w-[400px] mx-auto mt-2"
             >
               Send
             </button>

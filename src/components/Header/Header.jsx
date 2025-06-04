@@ -42,12 +42,15 @@ const Header = () => {
       <header className="max-w-[1440px] mx-auto pt-6 px-8 relative z-50">
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="flex items-center justify-between w-full md:w-auto gap-[130px]">
-            <Link to="/">
-              <img src={logo} width={218} height={28} alt="logo" />
-            </Link>
+            <a href="/" className="text-xl font-bold">
+              <span className="text-[rgb(var(--primary-color))]">
+                psychologists.
+              </span>
+              services
+            </a>
 
             <button
-              className="md:hidden text-[#54BE96]"
+              className="md:hidden text-[rgb(var(--primary-color))]"
               onClick={toggleMobileMenu}
             >
               <svg
@@ -86,7 +89,7 @@ const Header = () => {
             {isAuthenticated ? (
               <>
                 <li className="flex items-center text-[#191A15] mr-4 gap-3.5">
-                  <div className="w-10 h-10 flex items-center justify-center bg-[#54BE96] rounded-[10px]">
+                  <div className="w-10 h-10 flex items-center justify-center bg-[rgb(var(--primary-color))] rounded-[10px]">
                     <svg width="16" height="16">
                       <use href="/sprite.svg#user" />
                     </svg>
@@ -115,7 +118,7 @@ const Header = () => {
                 <li>
                   <button
                     onClick={() => setIsRegOpen(true)}
-                    className="w-[171px] h-12 bg-[#54BE96] text-[#FBFBFB] border-transparent rounded-[30px] hover:bg-[#36A379]"
+                    className="w-[171px] h-12 bg-[rgb(var(--primary-color))] text-[rgb(var(--primary-text-on))] border-transparent rounded-[30px] hover:bg-[rgb(var(--primary-color-hover))]"
                   >
                     Registration
                   </button>
@@ -132,7 +135,10 @@ const Header = () => {
               <Link to="/" onClick={toggleMobileMenu}>
                 <img src={logo} width={180} alt="logo" />
               </Link>
-              <button onClick={toggleMobileMenu} className="text-[#54BE96]">
+              <button
+                onClick={toggleMobileMenu}
+                className="text-[rgb(var(--primary-color))]"
+              >
                 <svg
                   className="w-8 h-8"
                   fill="none"

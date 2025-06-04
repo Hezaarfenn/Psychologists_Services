@@ -7,7 +7,7 @@ const BaseModal = ({ isOpen, onRequestClose, children }) => {
     <Modal
       isOpen={isOpen}
       onRequestClose={onRequestClose}
-      className="w-full h-full md:max-w-[566px] md:h-auto bg-[#FBFBFB] p-20 md:p-16 md:rounded-[30px] outline-none overflow-auto"
+      className="w-full h-full md:max-w-[566px] md:h-auto bg-[rgb(var(--primary-text-on))] p-20 md:p-16 md:rounded-[30px] outline-none overflow-auto"
       overlayClassName="fixed inset-0 bg-[#191A15]/60 z-50 flex justify-center items-center"
     >
       {children}

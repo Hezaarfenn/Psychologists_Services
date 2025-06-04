@@ -51,7 +51,7 @@ const PsychologistsCard = ({ data }) => {
 
   return (
     <>
-      <section className="max-w-[1440px] min-w-[768px] mx-auto border border-[#FBFBFB] rounded-3xl">
+      <section className="max-w-[1440px] min-w-[768px] mx-auto border border-[rgb(var(--primary-text-on))] rounded-3xl">
         <div className="flex p-6">
           {/* Left Side: Avatar */}
           <div>
@@ -60,7 +60,7 @@ const PsychologistsCard = ({ data }) => {
               height="120"
               src={avatar_url}
               alt={`${name} avatar`}
-              className="border-2 rounded-[30px] border-[#54BE96]/20"
+              className="border-2 rounded-[30px] border-[rgb(var(--primary-color)/0.20)]"
             />
           </div>
 
@@ -150,7 +150,7 @@ const PsychologistsCard = ({ data }) => {
                   {reviews.map((review, index) => (
                     <div key={index}>
                       <div className="flex gap-4 items-center">
-                        <div className="w-[44px] h-[44px] text-[#54BE96] border bg-[#54BE96]/20 rounded-full text-xl flex items-center justify-center">
+                        <div className="w-[44px] h-[44px] text-[rgb(var(--primary-color))] border bg-[rgb(var(--primary-color)/0.20)] rounded-full text-xl flex items-center justify-center">
                           {review.reviewer.charAt(0).toUpperCase()}
                         </div>
                         <div className="flex flex-col gap-1">
@@ -176,7 +176,7 @@ const PsychologistsCard = ({ data }) => {
 
                 <button
                   onClick={() => setIsAppointmentOpen(true)}
-                  className="w-[227px] h-12 mt-10 border bg-[#54BE96] border-transparent hover:bg-[#36A379] rounded-[30px] cursor-pointer text-[#FBFBFB]"
+                  className="w-[227px] h-12 mt-10 border bg-[rgb(var(--primary-color))] border-transparent hover:bg-[rgb(var(--primary-color-hover))] rounded-[30px] cursor-pointer text-[rgb(var(--primary-text-on))]"
                 >
                   Make an appointment
                 </button>
