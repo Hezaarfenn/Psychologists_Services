@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import {
   toggleFavorite,
@@ -28,7 +27,6 @@ const PsychologistsCard = ({ data }) => {
   const [isAppointmentOpen, setIsAppointmentOpen] = useState(false);
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const isAuthenticated = useSelector(selectIsAuthenticated);
 
   const uniqueId = `${name}-${avatar_url}`;
@@ -48,11 +46,6 @@ const PsychologistsCard = ({ data }) => {
       toast.success(`${name} added to favorites!`);
     } else {
       toast.info(`${name} removed from favorites!`);
-      console.log("Navigating to /favorites");
-
-      setTimeout(() => {
-        navigate("/favorites");
-      }, 1000);
     }
   };
 
@@ -74,7 +67,7 @@ const PsychologistsCard = ({ data }) => {
           {/* Right Side: Info */}
           <div className="flex-1 pl-6">
             {/* Top Info: Title and Rating */}
-            <div className="flex items-between items-start">
+            <div className="flex justify-between items-start w-full">
               <div>
                 <p className="text-[#8A8A89] font-medium text-[16px]">
                   Psychologist
@@ -84,7 +77,7 @@ const PsychologistsCard = ({ data }) => {
                 </h3>
               </div>
 
-              <div className="flex gap-4 items-center">
+              <div className="flex gap-4 items-center justify-between">
                 <div className="flex gap-2 items-center">
                   <svg width="16" height="16">
                     <use href="/sprite.svg#star" />
@@ -191,7 +184,11 @@ const PsychologistsCard = ({ data }) => {
                   isOpen={isAppointmentOpen}
                   onRequestClose={() => setIsAppointmentOpen(false)}
                 >
-                  <Appointment onClose={() => setIsAppointmentOpen(false)} />
+                  <Appointment
+                    onClose={() => setIsAppointmentOpen(false)}
+                    name={name}
+                    avatar_url={avatar_url}
+                  />
                 </BaseModal>
               </div>
             )}

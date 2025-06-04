@@ -16,7 +16,6 @@ const NotFoundPage = lazy(() => import("../pages/NotFoundPage/NotFoundPage"));
 
 export const PrivateRoute = ({ children }) => {
   const isLoggedIn = useSelector(selectIsAuthenticated);
-  console.log("isLoggedIn", isLoggedIn);
 
   return isLoggedIn ? children : <Navigate to="/psychologists" replace />;
 };

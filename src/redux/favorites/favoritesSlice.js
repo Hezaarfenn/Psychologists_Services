@@ -35,6 +35,9 @@ const favoritesSlice = createSlice({
         state.favoritesPsychologists.push(psychologist);
       }
     },
+    clearFavorites: (state) => {
+      state.favoritesPsychologists = [];
+    },
   },
 });
 
@@ -45,6 +48,10 @@ export const selectIsFavorite = (state, psychologistId) =>
     (item) => item.id === psychologistId,
   );
 
-export const { addToFavorites, removeFromFavorites, toggleFavorite } =
-  favoritesSlice.actions;
+export const {
+  addToFavorites,
+  removeFromFavorites,
+  toggleFavorite,
+  clearFavorites,
+} = favoritesSlice.actions;
 export default favoritesSlice.reducer;

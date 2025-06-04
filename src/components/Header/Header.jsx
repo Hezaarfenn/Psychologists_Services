@@ -3,14 +3,18 @@ import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logoutUser, selectIsAuthenticated } from "../../redux/auth/authSlice";
+import { clearFavorites } from "../../redux/favorites/favoritesSlice";
+import { persistor } from "../../redux/store";
 import logo from "/PsychologistsLogo.svg";
 import BaseModal from "../BaseModal/BaseModal";
 import Login from "../Login/Login";
 import Registiration from "../Registration/Registration";
+import Logout from "../Logout/Logout";
 
 const Header = () => {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isRegistirationOpen, setIsRegistirationOpen] = useState(false);
+  const [isLogoutOpen, setIsLogoutOpen] = useState(false);
 
   const user = useSelector((state) => state.auth.user);
   const isAuthenticated = useSelector(selectIsAuthenticated);
@@ -18,6 +22,9 @@ const Header = () => {
 
   const handleLogout = () => {
     dispatch(logoutUser());
+    dispatch(clearFavorites());
+    setIsLogoutOpen(false);
+    persistor.purge();
   };
 
   return (
@@ -25,7 +32,13 @@ const Header = () => {
       <section className="max-w-[1440px] min-w-[768] mx-auto flex flex-col md:flex-row items-center justify-between pt-6 px-8">
         <div className="flex items-center gap-[130px]">
           <Link to="/">
-            <img width="218" height="28" src={logo} alt="logo" />
+            <img
+              width="218"
+              height="28"
+              src={logo}
+              alt="logo"
+              className="max-w-[218px]"
+            />
           </Link>
 
           <ul className="flex gap-10 text-lg text-[#191A15]">
@@ -55,7 +68,10 @@ const Header = () => {
                 <span> {user?.name || user?.email}</span>
               </li>
               <li className="w-[124px] h-12 border border-[#191A15]/20 hover:bg-gray-300 hover:border-transparent rounded-[30px] cursor-pointer flex items-center justify-center">
-                <button onClick={handleLogout} className="cursor-pointer">
+                <button
+                  onClick={() => setIsLogoutOpen(true)}
+                  className="cursor-pointer"
+                >
                   Log Out
                 </button>
               </li>
@@ -101,6 +117,11 @@ const Header = () => {
           </BaseModal>
         </>
       )}
+      <Logout
+        isOpen={isLogoutOpen}
+        onRequestClose={() => setIsLogoutOpen(false)}
+        onConfirm={handleLogout}
+      />
     </>
   );
 };

@@ -63,7 +63,7 @@ const TimePicker = ({ name }) => {
   );
 };
 
-const Appointment = ({ onClose }) => {
+const Appointment = ({ onClose, name, avatar_url }) => {
   const initialValues = {
     name: "",
     phone: "",
@@ -102,17 +102,15 @@ const Appointment = ({ onClose }) => {
           <img
             width="44"
             height="44"
-            src="/img/Avatar.jpg"
-            alt="Avatar"
+            src={avatar_url}
+            alt={`${name} avatar`}
             className="border border-[#E0E0E0] rounded-[15px]"
           />
           <div className="flex flex-col gap-1">
             <p className="text-[#8A8A89] text-[12px] font-medium">
               Your psychologists
             </p>
-            <h3 className="text-[#191A15] text-[16px] font-medium">
-              Dr. Sarah Davis
-            </h3>
+            <h3 className="text-[#191A15] text-[16px] font-medium">{name}</h3>
           </div>
         </div>
 
