@@ -18,7 +18,7 @@ const Filters = () => {
   ];
 
   return (
-    <div className="max-w-[1440px] min-w-[768] mx-auto flex flex-col md:flex-row items-center justify-between pt-2 px-8">
+    <div className="max-w-[1440px] min-w-[768] mx-auto flex flex-col md:flex-row justify-between pt-2 px-8">
       <div className="flex flex-col relative w-56 mt-20 gap-2">
         <p className="text-[#8A8A89] text-[14px] font-medium">Filters</p>
         <div
