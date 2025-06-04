@@ -1,6 +1,6 @@
 import BaseModal from "../BaseModal/BaseModal";
 import Lottie from "lottie-react";
-import logoutAnimation from "/public/Animation - 1749030129537.json";
+import logoutAnimation from "../../assest/Animation - 1749030129537.json";
 
 const Logout = ({ isOpen, onRequestClose, onConfirm }) => {
   return (

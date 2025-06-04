@@ -11,14 +11,14 @@ const HomeImages = () => {
         />
 
         {/* Purple question mark box */}
-        <div className="w-10 h-10 bg-[#4535AF] rounded-[10px] absolute top-[38%] left-[-7%] -rotate-[15deg] flex items-center justify-center">
+        <div className="w-8 h-8 md:w-10 md:h-10 bg-[#4535AF] rounded-[10px] absolute top-[200px] md:top-[38%] left-[-3%] md:left-[-7%] -rotate-[15deg] flex items-center justify-center">
           <svg width="9" height="14.88" className="text-[#FBFBFB] fill-current">
             <use href="/sprite.svg#question-mark" />
           </svg>
         </div>
 
         {/* Yellow user-double box */}
-        <div className="w-[48.17px] h-[48.17px] bg-[#FBC75E] rounded-[10px] absolute top-[48px] left-[455px] -rotate-[-15deg] flex items-center justify-center">
+        <div className="w-10 h-10 md:w-[48.17px] md:h-[48.17px] bg-[#FBC75E] rounded-[10px] absolute top-[8%] md:top-[48px] right-[-5%] md:left-[455px] -rotate-[-15deg] flex items-center justify-center">
           <svg
             width="20"
             height="20"
@@ -29,7 +29,7 @@ const HomeImages = () => {
         </div>
 
         {/* Tick info box */}
-        <div className="flex justify-center items-center border bg-[#54BE96] w-[311px] h-[118px] rounded-[20px] border-transparent absolute top-[330px] left-[-100px]">
+        <div className="flex justify-center items-center border bg-[#54BE96] w-[280px] md:w-[311px] h-[110px] md:h-[118px] rounded-[20px] border-transparent absolute top-[330px] left-[-100px]">
           <div className="flex gap-4 items-center">
             <div className="w-[54px] h-[54px] bg-[#FBFBFB] rounded-[10px] flex items-center justify-center">
               <svg
