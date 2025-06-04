@@ -30,7 +30,12 @@ const PsychologistsCard = ({ data }) => {
   const isAuthenticated = useSelector(selectIsAuthenticated);
 
   const uniqueId = `${name}-${avatar_url}`;
-  const isFavorite = useSelector((state) => selectIsFavorite(state, uniqueId));
+  const isFavoriteInStore = useSelector((state) =>
+    selectIsFavorite(state, uniqueId),
+  );
+
+  // Burada önemli değişiklik: sadece authenticated kullanıcılar için favorite durumunu göster
+  const isFavorite = isAuthenticated && isFavoriteInStore;
 
   const handleFavorite = () => {
     if (!isAuthenticated) {
@@ -93,7 +98,11 @@ const PsychologistsCard = ({ data }) => {
                     <span className="text-[#38CD3E]">${price_per_hour}</span>
                   </p>
                   <button onClick={handleFavorite} className="cursor-pointer">
-                    <svg width="22.65" height="19.75">
+                    <svg
+                      width="22.65"
+                      height="19.75"
+                      className={`transition-colors ${isFavorite ? "text-[rgb(var(--primary-color))] hover:text-[rgb(var(--primary-color-hover))] fill-current" : ""}`}
+                    >
                       <use
                         href={
                           isFavorite

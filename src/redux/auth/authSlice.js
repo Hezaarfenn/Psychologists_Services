@@ -36,6 +36,7 @@ const authSlice = createSlice({
       .addCase(loginUser.fulfilled, (state, action) => {
         state.isLoading = false;
         state.user = action.payload;
+        state.isLoggedIn = true;
       })
       .addCase(loginUser.pending, (state) => {
         state.isLoading = true;
@@ -48,7 +49,8 @@ const authSlice = createSlice({
   },
 });
 
-export const selectIsAuthenticated = (state) => !!state.auth.user;
+export const selectIsAuthenticated = (state) =>
+  state.auth.isLoggedIn && !!state.auth.user;
 
 export const { logoutUser } = authSlice.actions;
 export default authSlice.reducer;

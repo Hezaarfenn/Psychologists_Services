@@ -14,6 +14,7 @@ import authReducer from "./auth/authSlice";
 import psychologistsReducer from "./psychologists/psychologistsSlice";
 import filtersReducer from "./filters/filtersSlice";
 import favoritesReducer from "./favorites/favoritesSlice";
+import themeReducer from "./theme/themeSlice";
 
 const persistConfig = {
   key: "auth",
@@ -33,12 +34,20 @@ const persistFavoritesReducer = persistReducer(
   favoritesReducer,
 );
 
+const themePersistConfig = {
+  key: "theme",
+  storage,
+};
+
+const persistThemeReducer = persistReducer(themePersistConfig, themeReducer);
+
 export const store = configureStore({
   reducer: {
     auth: persistedAuthReducer,
     psychologists: psychologistsReducer,
     filters: filtersReducer,
     favorites: persistFavoritesReducer,
+    theme: persistThemeReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

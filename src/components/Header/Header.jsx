@@ -2,8 +2,6 @@ import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logoutUser, selectIsAuthenticated } from "../../redux/auth/authSlice";
-import { clearFavorites } from "../../redux/favorites/favoritesSlice";
-import { persistor } from "../../redux/store";
 import logo from "/PsychologistsLogo.svg";
 import BaseModal from "../BaseModal/BaseModal";
 import Login from "../Login/Login";
@@ -22,8 +20,6 @@ const Header = () => {
 
   const handleLogout = () => {
     dispatch(logoutUser());
-    dispatch(clearFavorites());
-    persistor.purge();
     setIsLogoutOpen(false);
   };
 
@@ -41,7 +37,7 @@ const Header = () => {
     <>
       <header className="max-w-[1440px] mx-auto pt-6 px-8 relative z-50">
         <div className="flex flex-col md:flex-row items-center justify-between">
-          <div className="flex items-center justify-between w-full md:w-auto gap-[130px]">
+          <div className="flex items-center justify-between w-full md:w-auto gap-4 md:gap-[130px]">
             <a href="/" className="text-xl font-bold">
               <span className="text-[rgb(var(--primary-color))]">
                 psychologists.
@@ -50,7 +46,7 @@ const Header = () => {
             </a>
 
             <button
-              className="md:hidden text-[rgb(var(--primary-color))]"
+              className="md:hidden fixed top-10 right-12 z-50 text-[rgb(var(--primary-color))]"
               onClick={toggleMobileMenu}
             >
               <svg
@@ -157,18 +153,48 @@ const Header = () => {
 
             <ul className="flex flex-col items-center mt-12 gap-8 text-xl text-[#191A15] font-medium">
               <li>
-                <NavLink to="/" onClick={toggleMobileMenu}>
+                <NavLink
+                  to="/"
+                  onClick={toggleMobileMenu}
+                  className={({ isActive }) =>
+                    `px-6 py-2 rounded-full transition-all duration-200 ${
+                      isActive
+                        ? "bg-[rgb(var(--primary-color))] text-white"
+                        : "hover:bg-gray-100"
+                    }`
+                  }
+                >
                   Home
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/psychologists" onClick={toggleMobileMenu}>
+                <NavLink
+                  to="/psychologists"
+                  onClick={toggleMobileMenu}
+                  className={({ isActive }) =>
+                    `px-6 py-2 rounded-full transition-all duration-200 ${
+                      isActive
+                        ? "bg-[rgb(var(--primary-color))] text-white"
+                        : "hover:bg-gray-100"
+                    }`
+                  }
+                >
                   Psychologists
                 </NavLink>
               </li>
               {isAuthenticated && (
                 <li>
-                  <NavLink to="/favorites" onClick={toggleMobileMenu}>
+                  <NavLink
+                    to="/favorites"
+                    onClick={toggleMobileMenu}
+                    className={({ isActive }) =>
+                      `px-6 py-2 rounded-full transition-all duration-200 ${
+                        isActive
+                          ? "bg-[rgb(var(--primary-color))] text-white"
+                          : "hover:bg-gray-100"
+                      }`
+                    }
+                  >
                     Favorites
                   </NavLink>
                 </li>
@@ -181,6 +207,7 @@ const Header = () => {
                         setIsLoginOpen(true);
                         toggleMobileMenu();
                       }}
+                      className="px-6 py-2 rounded-full transition-all duration-200 hover:bg-gray-100"
                     >
                       Log In
                     </button>
@@ -191,6 +218,7 @@ const Header = () => {
                         setIsRegOpen(true);
                         toggleMobileMenu();
                       }}
+                      className="px-6 py-2 rounded-full transition-all duration-200 hover:bg-gray-100"
                     >
                       Registration
                     </button>
@@ -203,6 +231,7 @@ const Header = () => {
                       setIsLogoutOpen(true);
                       toggleMobileMenu();
                     }}
+                    className="px-6 py-2 rounded-full transition-all duration-200 hover:bg-gray-100"
                   >
                     Log Out
                   </button>

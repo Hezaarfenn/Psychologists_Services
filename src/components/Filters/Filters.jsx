@@ -22,7 +22,7 @@ const Filters = () => {
       <div className="flex flex-col relative w-56 mt-20 gap-2">
         <p className="text-[#8A8A89] text-[14px] font-medium">Filters</p>
         <div
-          className="flex justify-between items-center h-12 px-4 bg-[#53BE96] text-white rounded-[14px] cursor-pointer"
+          className="flex justify-between items-center h-12 px-4 bg-[rgb(var(--primary-color))] text-white rounded-[14px] cursor-pointer"
           onClick={() => setOpen((prev) => !prev)}
         >
           <span>
