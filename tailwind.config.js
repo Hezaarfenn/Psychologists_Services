@@ -7,6 +7,9 @@ export default {
         primaryHover: "rgb(var(--primary-color-hover) / <alpha-value>)",
         textOnPrimary: "rgb(var(--primary-text-on) / <alpha-value>)",
       },
+      fontFamily: {
+        pixel: ['"Press Start 2P"', "cursive"],
+      },
     },
   },
   plugins: [],
