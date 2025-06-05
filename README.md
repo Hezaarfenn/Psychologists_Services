@@ -1,12 +1,56 @@
-# React + Vite
+# 🧠 Psychologists Services
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Psychologists Services**, kullanıcıların çeşitli psikologları inceleyip favorilerine ekleyebileceği, güvenli ve kullanıcı dostu bir React uygulamasıdır. Firebase Realtime Database üzerinden veriler dinamik olarak çekilmekte ve Firebase Authentication ile kullanıcı doğrulaması yapılmaktadır.
 
-Currently, two official plugins are available:
+[![Static Badge](https://img.shields.io/badge/visit-Psychologists%20Services-%2354BE96?style=for-the-badge)](https://psychologists-services-ruddy.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ![alt](/public/img/PsychologistsServicesReadme.png)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📌 Özellikler
+
+- ✅ Psikolog listesinin Firebase’den dinamik olarak çekilmesi  
+- 🔒 Güvenli kullanıcı girişi ve kaydı (Firebase Authentication)  
+- 🧡 Favorilere psikolog ekleme ve yönetme  
+- 📄 Psikolog detay sayfası  
+- 🧭 React Router ile sayfa geçişleri  
+- ♻️ Yeniden kullanılabilir, modüler React bileşenleri
+
+---
+
+## 🧩 Kullanılan Teknolojiler
+
+| Teknoloji     | Açıklama                          |
+| ------------- | --------------------------------- |
+| React         | Bileşen tabanlı kullanıcı arayüzü |
+| Redux Toolkit | Global state yönetimi             |
+| React Router  | Sayfa yönlendirmeleri             |
+| Firebase      | Authentication ve Realtime Database|
+| Vercel        | Hosting ve canlı dağıtım          |
+| Tailwind Css  | Hızlı ve esnek stil tasarımı          |
+
+---
+
+## 👤 Geliştirici
+
+### 👩‍💻 Heza Gölcük
+
+<p align="left">
+  <a href="https://github.com/Hezaarfenn" target="_blank">
+    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Badge"/>
+  </a>
+  <a href="https://www.linkedin.com/in/heza-g%C3%B6lc%C3%BCk-8a2279312/" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
+  </a>
+</p>
+
+---
+
+📝 Lisans
+
+Bu proje eğitim amaçlıdır ve açık kaynak değildir.
+
+---
+
+⭐️ "Her bireyin ruh sağlığı önemli. Psychologists Services ile doğru uzmana ulaşmak artık çok kolay." 💚
