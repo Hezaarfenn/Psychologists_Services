@@ -2,7 +2,6 @@ import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logoutUser, selectIsAuthenticated } from "../../redux/auth/authSlice";
-import logo from "/PsychologistsLogo.svg";
 import BaseModal from "../BaseModal/BaseModal";
 import Login from "../Login/Login";
 import Registiration from "../Registration/Registration";
@@ -128,9 +127,12 @@ const Header = () => {
         {isMobileMenuOpen && (
           <div className="fixed inset-0 z-50 bg-white transition-transform duration-300 transform translate-x-0">
             <div className="flex justify-between items-center p-6 border-b border-gray-200">
-              <Link to="/" onClick={toggleMobileMenu}>
-                <img src={logo} width={180} alt="logo" />
-              </Link>
+              <a href="/" className="text-xl font-bold">
+                <span className="text-[rgb(var(--primary-color))]">
+                  psychologists.
+                </span>
+                services
+              </a>
               <button
                 onClick={toggleMobileMenu}
                 className="text-[rgb(var(--primary-color))]"

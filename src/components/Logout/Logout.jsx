@@ -1,13 +1,27 @@
+import { useSelector } from "react-redux";
 import BaseModal from "../BaseModal/BaseModal";
 import Lottie from "lottie-react";
-import logoutAnimation from "../../assest/Animation - 1749030129537.json";
+import logoutAnimationGreen from "../../assest/Animation-Green.json";
+import logoutAnimationBlue from "../../assest/Animation-Blue.json";
+import logoutAnimationOrange from "../../assest/Animation-Orange.json";
 
 const Logout = ({ isOpen, onRequestClose, onConfirm }) => {
+  const currentAnimation = useSelector((state) => state.theme.currentTheme);
+
+  const animations = {
+    "theme-green": logoutAnimationGreen,
+    "theme-blue": logoutAnimationBlue,
+    "theme-orange": logoutAnimationOrange,
+  };
+
+  const selectedAnimation =
+    animations[currentAnimation] || logoutAnimationGreen;
+
   return (
     <BaseModal isOpen={isOpen} onRequestClose={onRequestClose}>
       <div className="flex flex-col items-center">
         <Lottie
-          animationData={logoutAnimation}
+          animationData={selectedAnimation}
           loop
           autoplay
           className="w-60 h-60 mb-8"
