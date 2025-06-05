@@ -33,8 +33,6 @@ const PsychologistsCard = ({ data }) => {
   const isFavoriteInStore = useSelector((state) =>
     selectIsFavorite(state, uniqueId),
   );
-
-  // Burada önemli değişiklik: sadece authenticated kullanıcılar için favorite durumunu göster
   const isFavorite = isAuthenticated && isFavoriteInStore;
 
   const handleFavorite = () => {
