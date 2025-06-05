@@ -26,9 +26,11 @@
 | React         | Bileşen tabanlı kullanıcı arayüzü |
 | Redux Toolkit | Global state yönetimi             |
 | React Router  | Sayfa yönlendirmeleri             |
+| redux-persist | Redux state kalıcılığı            |
+| Formik & Yup  | Form yönetimi ve doğrulama        |
 | Firebase      | Authentication ve Realtime Database|
 | Vercel        | Hosting ve canlı dağıtım          |
-| Tailwind Css  | Hızlı ve esnek stil tasarımı          |
+| Tailwind Css  | Hızlı ve esnek stil tasarımı      |
 
 ---
 
