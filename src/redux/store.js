@@ -19,7 +19,7 @@ import themeReducer from "./theme/themeSlice";
 const persistConfig = {
   key: "auth",
   storage,
-  whitelist: ["user"],
+  whitelist: ["user", "isLoggedIn"],
 };
 
 const persistedAuthReducer = persistReducer(persistConfig, authReducer);
