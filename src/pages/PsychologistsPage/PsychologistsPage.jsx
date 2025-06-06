@@ -30,7 +30,7 @@ const PsychologistsPage = () => {
       <div>
         <Filters />
       </div>
-      <div>
+      <div className="flex flex-col gap-1">
         {isLoading && <Loader />}
         {error && <p>Error: {error}</p>}
         {sortedItems.map((psych, index) => (

@@ -23,7 +23,7 @@ const FavoritesPage = () => {
           You haven't added any favorites yet.
         </p>
       ) : (
-        <div className="space-y-6">
+        <div className="flex flex-col gap-1">
           {sortedFavorites.map((psychologist) => (
             <PsychologistsCard key={psychologist.id} data={psychologist} />
           ))}
