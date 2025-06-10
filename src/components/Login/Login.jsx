@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { loginUser } from "../../redux/auth/authOps";
@@ -8,6 +8,7 @@ import { loginSchema } from "../../validation/validationSchema";
 import "./../../routers/AppRoutes";
 
 const Login = ({ onClose }) => {
+  const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isLoading, isLoggedIn } = useSelector((state) => state.auth);
@@ -55,7 +56,7 @@ const Login = ({ onClose }) => {
   };
 
   return (
-    <section className="relative md:p-0 min-h-[100vh] flex flex-col items-center justify-center">
+    <section className="relative md:p-0 flex flex-col items-center justify-center">
       <div className="flex flex-col gap-5">
         <h1 className="text-[40px] text-[#191A15] font-medium">Log In</h1>
         <p className="text-[16px] text-[#191A15]/50 font-normal">
@@ -75,28 +76,41 @@ const Login = ({ onClose }) => {
               name="email"
               type="email"
               placeholder="Email"
-              className="w-fullw-[438px] h-[52px] border border-[#191A15]/10 rounded-xl px-4.5 placeholder:text-[#191A15] focus:outline-none"
+              className="w-full h-[52px] border border-[#191A15]/10 rounded-xl px-4.5 placeholder:text-[#191A15] focus:outline-none"
             />
             <ErrorMessage
               name="email"
               component="div"
               className="text-red-500 text-sm ml-2"
             />
-            <Field
-              name="password"
-              type="password"
-              placeholder="Password"
-              className="w-fullw-[438px] h-[52px] border border-[#191A15]/10 rounded-xl px-4.5 placeholder:text-[#191A15] focus:outline-none"
-            />
-            <ErrorMessage
-              name="password"
-              component="div"
-              className="text-red-500 text-sm ml-2"
-            />
+
+            <div className="relative">
+              <Field
+                name="password"
+                type="password"
+                placeholder="Password"
+                className="w-full h-[52px] border border-[#191A15]/10 rounded-xl px-4.5 placeholder:text-[#191A15] focus:outline-none"
+              />
+              <svg
+                width="20"
+                height="20"
+                onClick={() => setShowPassword((prev) => !prev)}
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer"
+              >
+                <use
+                  href={`/sprite.svg#${showPassword ? "eye-off" : "eye-on"}`}
+                />
+              </svg>
+              <ErrorMessage
+                name="password"
+                component="div"
+                className="text-red-500 text-sm ml-2"
+              />
+            </div>
             <button
               type="submit"
               disabled={isSubmitting || isLoading}
-              className="w-fullw-[438px] h-[52px] mt-10 border bg-[rgb(var(--primary-color))] border-transparent hover:bg-[rgb(var(--primary-color-hover))] rounded-[30px] text-[rgb(var(--primary-text-on))]"
+              className="w-full h-[52px] mt-10 border bg-[rgb(var(--primary-color))] border-transparent hover:bg-[rgb(var(--primary-color-hover))] rounded-[30px] text-[rgb(var(--primary-text-on))]"
             >
               {isLoading ? "Logging in..." : "Log In"}
             </button>
