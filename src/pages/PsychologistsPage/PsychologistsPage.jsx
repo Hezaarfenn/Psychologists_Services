@@ -1,19 +1,30 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchPsychologists } from "../../redux/psychologists/psychologistsOps";
 import PsychologistsCard from "../../components/PsychologistsCard/PsychologistsCard";
 import Loader from "../../components/Loader/Loader";
-import { loadMorePsyhologists } from "../../redux/psychologists/psychologistsSlice";
+import {
+  loadMorePsyhologists,
+  updateDisplayedItems,
+} from "../../redux/psychologists/psychologistsSlice";
 import Filters from "../../components/Filters/Filters";
 import { sortPsychologists } from "../../redux/filters/filtersSlice";
 
 const PsychologistsPage = () => {
   const dispatch = useDispatch();
-  const { isLoading, error, displayedItems, totalItems } = useSelector(
+  const { isLoading, error, items, currentPage, itemsPerPage } = useSelector(
     (state) => state.psychologists,
   );
   const sortOption = useSelector((state) => state.filters.sortOption);
-  const sortedItems = sortPsychologists(displayedItems, sortOption);
+
+  const allSortedItems = useMemo(() => {
+    return sortPsychologists(items, sortOption);
+  }, [items, sortOption]);
+
+  const displayedItems = useMemo(() => {
+    const endIndex = currentPage * itemsPerPage;
+    return allSortedItems.slice(0, endIndex);
+  }, [allSortedItems, currentPage, itemsPerPage]);
 
   useEffect(() => {
     dispatch(fetchPsychologists());
@@ -21,9 +32,12 @@ const PsychologistsPage = () => {
 
   const handleLoadMore = () => {
     dispatch(loadMorePsyhologists());
+    setTimeout(() => {
+      dispatch(updateDisplayedItems(allSortedItems));
+    }, 0);
   };
 
-  const hasMoreItems = displayedItems.length < totalItems;
+  const hasMoreItems = displayedItems.length < allSortedItems.length;
 
   return (
     <>
@@ -33,7 +47,7 @@ const PsychologistsPage = () => {
       <div className="flex flex-col gap-1">
         {isLoading && <Loader />}
         {error && <p>Error: {error}</p>}
-        {sortedItems.map((psych, index) => (
+        {displayedItems.map((psych, index) => (
           <PsychologistsCard key={index} data={psych} />
         ))}
       </div>

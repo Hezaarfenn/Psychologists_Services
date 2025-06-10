@@ -17,8 +17,7 @@ export const psychologistsSlice = createSlice({
   reducers: {
     loadMorePsyhologists: (state) => {
       const startIndex = 0;
-      const endIndex =
-        state.currentPage * state.itemsPerPage + state.itemsPerPage;
+      const endIndex = (state.currentPage + 1) * state.itemsPerPage;
       state.displayedItems = state.items.slice(startIndex, endIndex);
       state.currentPage += 1;
     },
@@ -26,7 +25,13 @@ export const psychologistsSlice = createSlice({
       state.currentPage = 1;
       state.displayedItems = state.items.slice(0, state.itemsPerPage);
     },
+    updateDisplayedItems: (state, action) => {
+      const sortedItems = action.payload;
+      const endIndex = state.currentPage * state.itemsPerPage;
+      state.displayedItems = sortedItems.slice(0, endIndex);
+    },
   },
+
   extraReducers: (builder) => {
     builder
       .addCase(fetchPsychologists.fulfilled, (state, action) => {
@@ -47,6 +52,6 @@ export const psychologistsSlice = createSlice({
   },
 });
 
-export const { loadMorePsyhologists, resetCurrentPage } =
+export const { loadMorePsyhologists, resetCurrentPage, updateDisplayedItems } =
   psychologistsSlice.actions;
 export default psychologistsSlice.reducer;
