@@ -41,7 +41,7 @@ const Registiration = ({ onClose }) => {
   };
 
   return (
-    <section className="relative p-15 md:p-0">
+    <section className="relative md:p-0 min-h-[100vh] flex flex-col items-center justify-center">
       <div className="flex flex-col gap-5">
         <h1 className="text-[40px] text-[#191A15] font-medium">
           Registiration
@@ -64,7 +64,7 @@ const Registiration = ({ onClose }) => {
               name="name"
               type="text"
               placeholder="Name"
-              className="w-[438px] h-[52px] border border-[#191A15]/10 rounded-xl px-4.5 placeholder:text-[#191A15] focus:outline-none"
+              className="w-full min-w-[438px] h-[52px] border border-[#191A15]/10 rounded-xl px-4.5 placeholder:text-[#191A15] focus:outline-none"
             />
             <ErrorMessage
               name="name"
@@ -76,7 +76,7 @@ const Registiration = ({ onClose }) => {
               name="email"
               type="email"
               placeholder="Email"
-              className="w-[438px] h-[52px] border border-[#191A15]/10 rounded-xl px-4.5 placeholder:text-[#191A15] focus:outline-none"
+              className="w-full min-w-[438px] h-[52px] border border-[#191A15]/10 rounded-xl px-4.5 placeholder:text-[#191A15] focus:outline-none"
             />
             <ErrorMessage
               name="email"
@@ -87,7 +87,7 @@ const Registiration = ({ onClose }) => {
               name="password"
               type={showPassword ? "text" : "password"}
               placeholder="Password"
-              className="w-[438px] h-[52px] border border-[#191A15]/10 rounded-xl px-4.5 placeholder:text-[#191A15] focus:outline-none"
+              className="w-full min-w-[438px] h-[52px] border border-[#191A15]/10 rounded-xl px-4.5 placeholder:text-[#191A15] focus:outline-none"
             />
             <svg
               width="20"
@@ -107,7 +107,7 @@ const Registiration = ({ onClose }) => {
             <button
               type="submit"
               disabled={isSubmitting || isLoading}
-              className="w-[438px] h-[52px] mt-10 border bg-[rgb(var(--primary-color))] border-transparent hover:bg-[rgb(var(--primary-color-hover))] rounded-[30px] text-[rgb(var(--primary-text-on))]"
+              className="w-full min-w-[438px] h-[52px] mt-10 border bg-[rgb(var(--primary-color))] border-transparent hover:bg-[rgb(var(--primary-color-hover))] rounded-[30px] text-[rgb(var(--primary-text-on))]"
             >
               {isLoading ? "Loading..." : "Sign Up"}
             </button>
