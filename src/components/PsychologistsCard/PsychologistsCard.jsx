@@ -54,8 +54,8 @@ const PsychologistsCard = ({ data }) => {
 
   return (
     <>
-      <section className="mt-8 w-full md:max-w-[1440px] min-w-[768px] mx-auto border border-[rgb(var(--primary-text-on))] rounded-3xl">
-        <div className="flex p-6">
+      <section className="mt-8 w-full md:max-w-[1440px] mx-auto border border-[rgb(var(--primary-text-on))] rounded-3xl">
+        <div className="flex flex-col md:flex-row p-6 overflow-hidden">
           {/* Left Side: Avatar */}
           <div>
             <img
