@@ -10,19 +10,13 @@ import "./../../routers/AppRoutes";
 const Login = ({ onClose }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isLoading, error, isLoggedIn } = useSelector((state) => state.auth);
+  const { isLoading, isLoggedIn } = useSelector((state) => state.auth);
 
   useEffect(() => {
     if (isLoggedIn) {
       navigate("/psychologists");
     }
   }, [isLoggedIn, navigate]);
-
-  useEffect(() => {
-    if (error) {
-      toast.error(error.message);
-    }
-  }, [error]);
 
   const initialValues = {
     email: "",
@@ -35,7 +29,26 @@ const Login = ({ onClose }) => {
     if (loginUser.fulfilled.match(resultAction)) {
       onClose();
     } else {
-      toast.error(error.message);
+      const errorPayload = resultAction.payload;
+
+      if (errorPayload?.code === "auth/invalid-credential") {
+        toast.error(
+          "Invalid email or password. Please check your credentials.",
+        );
+      } else if (errorPayload?.code === "auth/user-not-found") {
+        toast.error("User not found. Please check your email.");
+      } else if (errorPayload?.code === "auth/wrong-password") {
+        toast.error("Incorrect password. Please try again.");
+      } else if (errorPayload?.code === "auth/too-many-requests") {
+        toast.error("Too many failed attempts. Please try again later.");
+      } else if (errorPayload?.code === "auth/user-disabled") {
+        toast.error("This account has been disabled.");
+      } else {
+        toast.error(
+          errorPayload?.message ||
+            "An unexpected error occurred. Please try again.",
+        );
+      }
     }
 
     setSubmitting(false);

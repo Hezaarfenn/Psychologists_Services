@@ -22,7 +22,20 @@ const Registiration = ({ onClose }) => {
     if (registerUser.fulfilled.match(resultAction)) {
       onClose();
     } else {
-      toast.error(resultAction.payload?.message || "Registration failed");
+      const errorPayload = resultAction.payload;
+
+      if (errorPayload?.code === "auth/invalid-credential") {
+        toast.error(
+          "Invalid email or password. Please check your credentials.",
+        );
+      } else if (errorPayload?.code === "auth/email-already-in-use") {
+        toast.error("Email already in use. Please use a different email.");
+      } else {
+        toast.error(
+          errorPayload?.message ||
+            "An unexpected error occurred. Please try again.",
+        );
+      }
     }
     setSubmitting(false);
   };
