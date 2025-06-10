@@ -74,7 +74,6 @@ const Appointment = ({ onClose, name, avatar_url }) => {
 
   const handleSubmit = (values, { resetForm }) => {
     try {
-      console.log(values);
       toast.success("Your appointment has been successfully scheduled!");
       resetForm();
       onClose();
