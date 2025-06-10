@@ -6,6 +6,7 @@ import BaseModal from "../BaseModal/BaseModal";
 import Login from "../Login/Login";
 import Registiration from "../Registration/Registration";
 import Logout from "../Logout/Logout";
+import ThemeSelector from "../ThemeSelector/ThemeSelector";
 
 const Header = () => {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
@@ -44,24 +45,27 @@ const Header = () => {
               services
             </a>
 
-            <button
-              className="md:hidden fixed top-10 right-12 z-50 text-[rgb(var(--primary-color))]"
-              onClick={toggleMobileMenu}
-            >
-              <svg
-                className="w-8 h-8"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+            <div className="flex items-center gap-3 md:hidden">
+              <ThemeSelector />
+              <button
+                className="text-[rgb(var(--primary-color))]"
+                onClick={toggleMobileMenu}
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            </button>
+                <svg
+                  className="w-8 h-8"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
 
           {/* Desktop Navigation */}

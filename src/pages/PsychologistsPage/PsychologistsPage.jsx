@@ -53,10 +53,10 @@ const PsychologistsPage = () => {
       </div>
 
       {hasMoreItems && (
-        <div className="flex justify-center">
+        <div className="flex justify-center w-full">
           <button
             onClick={handleLoadMore}
-            className="w-[176px] h-12 mt-16 mb-[100px] border bg-[rgb(var(--primary-color))] border-transparent hover:bg-[rgb(var(--primary-color-hover))] rounded-[30px] cursor-pointer text-[rgb(var(--primary-text-on))]"
+            className="mx-auto w-[176px] h-12 mt-16 mb-[100px] border bg-[rgb(var(--primary-color))] border-transparent hover:bg-[rgb(var(--primary-color-hover))] rounded-[30px] cursor-pointer text-[rgb(var(--primary-text-on))]"
           >
             Load More
           </button>

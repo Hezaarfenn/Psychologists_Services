@@ -12,7 +12,7 @@ const ThemeSelector = () => {
   const currentTheme = useSelector((state) => state.theme.currentTheme);
 
   return (
-    <div className="flex justify-end mx-5 mt-2 gap-1">
+    <div className="flex justify-end mr-2 sm:mr-4 md:mr-5 mt-2 gap-1">
       {themes.map((theme) => (
         <button
           key={theme.value}

@@ -7,7 +7,7 @@ import ThemeSelector from "./components/ThemeSelector/ThemeSelector";
 function App() {
   return (
     <ThemeWrapper>
-      <div className="flex flex-col max-w-[1440px] min-w-[760px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="hidden md:flex flex-col max-w-[1440px] min-w-[760px] mx-auto px-4 sm:px-6 lg:px-8">
         <ThemeSelector />
       </div>
       <AppRoutes />

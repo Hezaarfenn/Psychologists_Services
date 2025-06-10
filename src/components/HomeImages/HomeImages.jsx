@@ -33,7 +33,7 @@ const HomeImages = () => {
         </div>
 
         {/* Tick info box */}
-        <div className="flex justify-center items-center border bg-[rgb(var(--primary-color))] w-[280px] md:w-[311px] h-[110px] md:h-[118px] rounded-[20px] border-transparent absolute top-[330px] left-[-100px]">
+        <div className="flex justify-center items-center border bg-[rgb(var(--primary-color))] w-[280px] md:w-[311px] h-[110px] md:h-[118px] rounded-[20px] border-transparent absolute top-[250px] md:top-[330px] left-[-40px] md:left-[-100px]">
           <div className="flex gap-4 items-center">
             <div className="w-[54px] h-[54px] bg-[rgb(var(--primary-text-on))] rounded-[10px] flex items-center justify-center">
               <svg
