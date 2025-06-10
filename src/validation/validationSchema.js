@@ -21,12 +21,7 @@ export const appointmentSchema = Yup.object({
   name: Yup.string()
     .required("Name is required")
     .min(2, "At least 2 characters"),
-  phone: Yup.string()
-    .matches(
-      /^\+\d{6,15}$/,
-      "Phone must be in international format (e.g. +380123456789)",
-    )
-    .required("Phone is required"),
+  phone: Yup.string().required("Phone is required"),
   meetingTime: Yup.string()
     .notOneOf(["00:00"], "Meeting time is required")
     .required("Required"),

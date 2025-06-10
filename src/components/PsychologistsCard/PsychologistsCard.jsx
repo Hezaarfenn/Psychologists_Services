@@ -143,7 +143,7 @@ const PsychologistsCard = ({ data }) => {
 
               {!expanded && (
                 <button
-                  className="w-[82px] text-[#191A15] font-medium text-[16px] underline mt-3.5"
+                  className="cursor-pointer w-[82px] text-[#191A15] font-medium text-[16px] underline mt-3.5"
                   onClick={() => setExpanded(true)}
                 >
                   Read more
