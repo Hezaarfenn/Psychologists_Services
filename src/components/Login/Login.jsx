@@ -87,7 +87,7 @@ const Login = ({ onClose }) => {
             <div className="relative">
               <Field
                 name="password"
-                type="password"
+                type={showPassword ? "text" : "password"}
                 placeholder="Password"
                 className="w-full h-[52px] border border-[#191A15]/10 rounded-xl px-4.5 placeholder:text-[#191A15] focus:outline-none"
               />
